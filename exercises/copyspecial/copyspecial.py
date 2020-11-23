@@ -37,7 +37,6 @@ def copy_dir(paths, todir):
 
 def zip_dir(paths, tozip):
     cmd = 'zip -j ' + tozip + ' ' + ' '.join(paths)
-    print("Command I'm going to do:" + cmd)
     (status, output) = subprocess.getstatusoutput(cmd)
     # If command had a problem (status is non-zero),
     # print its output to stderr and exit.
