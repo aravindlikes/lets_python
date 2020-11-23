@@ -36,6 +36,8 @@ print_words() and print_top().
 
 import sys
 
+import collections
+
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
@@ -54,13 +56,15 @@ def sort_value(item):
 def build_dict(filename):
     f = open(filename, 'r')
     words = f.read().split()
-    count = {}
+
+    word_list = []
     for word in words:
-        word = word.lower()
-        if word not in count:
-            count[word] = 1
-        else:
-            count[word] += 1
+        word_list.append(word.lower())
+        # if word not in count:
+        #     count[word] = 1
+        # else:
+        #     count[word] += 1
+    count = collections.Counter(word_list)
     f.close()
     return count
 
