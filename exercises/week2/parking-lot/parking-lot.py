@@ -1,11 +1,9 @@
 ## Reference used: https://github.com/pankaj9310/parking-lot-design
 
-import math
 import time
 
 from enum import Enum
 from datetime import datetime
-from abc import ABC, abstractmethod
 
 
 class VehicleType(Enum):
@@ -20,7 +18,7 @@ class ParkingTicketStatus(Enum):
     ACTIVE, PAID, LOST = 1, 2, 3
 
 
-class Vehicle(ABC):
+class Vehicle():
     def __init__(self, vehicle_number, vehicle_type, parking_spot_type, ticket=None):
         self.vehicle_number = vehicle_number
         self.vehicle_type = vehicle_type
@@ -90,9 +88,7 @@ class ParkingLot:
 
     def is_full(self, vehicle_type):
         """Check parking lot status.
-
         Args: string vehicle_type
-
         Returns: boolean value
         """
         # trucks and vans can only be parked in LargeSpot
@@ -110,9 +106,7 @@ class ParkingLot:
 
     def _increment_spot_count(self, vehicle_type):
         """Update parking spot count.
-
         Args: string vehicle_type
-
         Returns None
         """
         if vehicle_type == VehicleType.Bus:
@@ -127,9 +121,7 @@ class ParkingLot:
 
     def _decrement_spot_count(self, vehicle_type):
         """Update parking spot count.
-
         Args: string vehicle_type
-
         Returns: None
         """
         if vehicle_type == VehicleType.Bus:
